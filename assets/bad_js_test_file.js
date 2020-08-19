@@ -1,5 +1,6 @@
 let FavColor = "green";
 let Hobby = "football";
+food_things = "rice";
 let best_music = "rock"
 let fst = "first" 
 let scd = "first" 
