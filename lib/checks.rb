@@ -15,10 +15,13 @@ class StyleGuides
     puts 'WARNING: '.yellow + "Expected triple equality on line: #{error_line}, " if /(?<!=)==(?!=)/.match(line)
     true
   end
+
   def case_sensitive?(line, error_line)
     return false unless /[A-Z]([A-Z0-9]*[a-z][a-z0-9]*[A-Z]|[a-z0-9]*[A-Z][A-Z0-9]*[a-z])[A-Za-z0-9]*/.match(line)
 
-    puts 'WARNING: '.yellow + "camelCase is recommended for variable names on line: #{error_line}, " if /^[A-Z]/.match(line)
+    if /^[A-Z]/.match(line)
+      puts 'WARNING: '.yellow + "camelCase is recommended for variable names on line: #{error_line}, "
+    end
     true
   end
 
@@ -44,7 +47,7 @@ class StyleGuides
   end
 
   def missing_semicolon?(line, error_line)
-    return false unless /^\s*(?=\S)(?!package.+\n|public.+\n|\/\/|\{|\})(.+)(?<!;)\s*$/.match(line)
+    return false unless %r{^\s*(?=\S)(?!package.+\n|public.+\n|//|\{|\})(.+)(?<!;)\s*$}.match(line)
 
     puts 'ERROR: '.red + "missing semicolon at the end of line on line: #{error_line}."
     true
