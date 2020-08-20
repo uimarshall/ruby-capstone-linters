@@ -2,8 +2,7 @@ require_relative '../lib/file_reader.rb'
 require_relative '../lib/checks.rb'
 
 describe StyleGuides do
-  # rubocop : disable Style/BlockDelimiters
-  let(:file_content) {
+  let(:file_content) do
     %(
 let FavColor = "green";
 let Hobby = "football";
@@ -30,8 +29,7 @@ function exponent\(x, y\) \{
   return x ** y
 \}
     )
-  }
-  # rubocop : enable Style/BlockDelimiters
+  end
 
   let(:parse_js_file) { StyleGuides.new(file_content) }
 
