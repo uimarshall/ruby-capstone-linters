@@ -188,7 +188,6 @@ ruby bin/main.rb
 
 
 
-
         # Good Code
         if (condition) {
           return "go"
