@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require_relative '../lib/file_reader.rb'
 require_relative '../lib/checks.rb'
 file_data = ReadFileContent.new.fetch_file_content('../assets/bad_js_test_file.js')
