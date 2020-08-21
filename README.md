@@ -75,7 +75,7 @@ git clone https://github.com/uimarshall/ruby-capstone-linters.git
 cd ruby-capstone-linters
 ```
 
-Type in the following command to run the linter on a css file in the folder
+Type in the following command to run the linter on a JavaScript file in the folder
 
 ```
 ruby bin/main.rb
