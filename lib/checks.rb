@@ -26,7 +26,7 @@ class StyleGuides
   end
 
   def trailing_spaces?(line, error_line)
-    return false unless /^\S((?!.*  ).*\S)?$/.match(line)
+    return false unless /.+[\w]\s\s.+/.match(line)
 
     puts 'ERROR: '.red + "Unexpected double spaces on line: #{error_line}."
     true
@@ -47,7 +47,7 @@ class StyleGuides
   end
 
   def missing_semicolon?(line, error_line)
-    return false unless %r{^\s*(?=\S)(?!package.+\n|public.+\n|//|\{|\})(.+)(?<!;)\s*$}.match(line)
+    return false unless /^[^\n|\}|function](?:(?!;).)*$/.match(line)
 
     puts 'ERROR: '.red + "missing semicolon at the end of line on line: #{error_line}."
     true
@@ -77,15 +77,6 @@ class StyleGuides
     true
   end
 
-  private
-
-  def pair_of_braces_count(line)
-    @opening_brace += 1 if /\{/ =~ line
-    @closing_brace += 1 if /\}/ =~ line
-  end
-
-  public
-
   def read_lines
     (0..arr.size).each do |i|
       line = arr[i]
@@ -100,5 +91,12 @@ class StyleGuides
       missing_semicolon?(line, i + 1)
     end
     check_complete_braces
+  end
+
+  private
+
+  def pair_of_braces_count(line)
+    @opening_brace += 1 if /\{/ =~ line
+    @closing_brace += 1 if /\}/ =~ line
   end
 end

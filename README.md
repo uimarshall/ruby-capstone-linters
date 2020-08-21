@@ -20,6 +20,10 @@ This is a ruby linter that helps you check for JavaScript linting errors and enf
 
 ## ![screenshot](./screen_shot.png)
 
+## Watch the presentation video.
+
+[![screenshot](./video_desc.png)](https://www.loom.com/share/db091d5ea60d4b73ace5e3024aebd1c0)
+
 ## 🔧 Built with<a name = "builtwith"></a>
 
 - [Ruby](https://rubyonrails.org/)
